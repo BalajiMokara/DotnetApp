@@ -1,0 +1,69 @@
+﻿@model WebApplication1.Models.GetByID
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+        @*@using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <h4>GetByID</h4>
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.id1, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.id1, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.id1, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Create" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>*@
+<h3 style="text-align:center">Update Customer Details</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.EnumDropDownListFor(model => model.id)
+    @Html.TextBoxFor(m => m.id1)
+    <input id="Submit1" type="submit" value="submit" />
+    <input type="reset" value="Reset" class="btn btn-default" />
+}
+
+@{
+    if (ViewData["aw1"] != null && ViewData["aw1"].Equals("aw1"))
+    {
+        ViewData["aw1"] = null;
+        <script type="text/javascript" language="javascript">
+            alert("Customer Id does not exists");
+        </script>
+    }
+
+
+    if (ViewData["aw2"] != null && ViewData["aw2"].Equals("aw2"))
+    {
+        ViewData["aw2"] = null;
+        <script type="text/javascript" language="javascript">
+            alert("SSN Id does not exists");
+        </script>
+    }
+
+
+
+
+
+
+}

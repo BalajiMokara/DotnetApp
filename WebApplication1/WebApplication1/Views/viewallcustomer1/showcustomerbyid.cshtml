@@ -1,0 +1,82 @@
+﻿@model WebApplication1.Models.viewallcustomer1
+
+@{
+    ViewBag.Title = "showcustomerbyid";
+}
+
+<h3>Show Customer</h3>
+
+
+<table width="100%">
+    <tr>
+        <th>
+            CustomerID
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            SSN ID
+        </th>
+        <th>
+            Age
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            City
+        </th>
+        <th>
+            State
+        </th>
+    </tr>
+
+
+    @{
+        for (int i = 0; i < Model.StoreAllData.Tables[0].Rows.Count; i++)
+        {
+            var custID = Model.StoreAllData.Tables[0].Rows[i]["custid"].ToString();
+            var Name = Model.StoreAllData.Tables[0].Rows[i]["cname"].ToString();
+            var ssnid = Model.StoreAllData.Tables[0].Rows[i]["ssnid"].ToString();
+            var age = Model.StoreAllData.Tables[0].Rows[i]["cage"].ToString();
+            var address = Model.StoreAllData.Tables[0].Rows[i]["caline1"].ToString();
+            var city = Model.StoreAllData.Tables[0].Rows[i]["city"].ToString();
+            var state = Model.StoreAllData.Tables[0].Rows[i]["cstate"].ToString();
+            
+            
+
+            <tr>
+                <td>
+                    @custID
+                </td>
+                <td>
+                    @Name
+                </td>
+                <td>
+                    @ssnid
+                </td>
+                <td>
+                    @age
+                </td>
+                <td>
+                    @address
+                </td>
+                <td>
+                    @city
+                </td>
+                <td>
+                    @state
+                </td>
+            </tr>
+
+
+
+        }
+
+    }
+</table>
+
+<div style="margin-top:25px">
+    @Html.ActionLink("Back", "executive", "homepage")
+</div>

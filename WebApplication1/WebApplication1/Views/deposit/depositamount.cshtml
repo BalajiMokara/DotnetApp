@@ -1,0 +1,72 @@
+﻿@model WebApplication1.Models.Deposit
+
+@{
+    ViewBag.Title = "depositamount";
+}
+
+<h2>Deposit Amount</h2>
+
+
+@using (Html.BeginForm("depositamountafterview","deposit")) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.custid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.custid, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.custid, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.custid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.accid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.accid, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.acid, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.accid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.actype, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.actype, new { htmlAttributes = new { @class = "form-control" , @Value = ViewBag.type, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.actype, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.balance, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.balance, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.balance, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.balance, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.amount, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.amount, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.amount, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="deposit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back","cashier", "homepage")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

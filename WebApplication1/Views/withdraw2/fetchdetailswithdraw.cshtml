@@ -1,0 +1,81 @@
+﻿@model WebApplication1.Models.withdraw2
+
+@{
+    ViewBag.Title = "fetchdetailswithdraw";
+}
+
+
+
+
+@using (Html.BeginForm("viewwithdrawdetails", "withdraw2"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h3 style="text-align:center">Withdraw</h3>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.cusid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.cusid, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.cid, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.cusid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.accid, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.accid, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.acid, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.accid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.account, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.account, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.actp, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.cusid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.bal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.bal, new { htmlAttributes = new { @class = "form-control", @Value = ViewBag.bala, @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.bal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.wd, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.wd, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.wd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="withdraw" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back", "cashier","homepage")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@{
+    if (Convert.ToString(Session["res"])=="1")
+    {
+       // ViewData["res"] = null;
+        <script type="text/javascript" language="javascript">
+            alert("Withdraw amount cannot be more than balance");
+        </script>
+        }
+    }

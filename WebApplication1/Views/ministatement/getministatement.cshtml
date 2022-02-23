@@ -1,0 +1,70 @@
+﻿@model WebApplication1.Models.ministatement
+
+@{
+    ViewBag.Title = "getministatement";
+}
+
+<h3 style="text-align:center">Mini Statement</h3>
+
+<table width="100%">
+    <tr>
+        <th>
+            AccountID
+        </th>
+        <th>
+            Customer Id
+        </th>
+        <th>
+            Deposit/Withdraw
+        </th>
+        <th>
+            Amount
+        </th>
+        <th>
+            Transaction Date
+        </th>
+       
+    </tr>
+
+
+    @{
+        for (int i = 0; i < Model.StoreAllData.Tables[0].Rows.Count; i++)
+        {
+            var custID = Model.StoreAllData.Tables[0].Rows[i]["custid"].ToString();
+            var acid = Model.StoreAllData.Tables[0].Rows[i]["acid"].ToString();
+            var type = Model.StoreAllData.Tables[0].Rows[i]["ttype"].ToString();
+            var amount= Model.StoreAllData.Tables[0].Rows[i]["amount"].ToString();
+            var tdate = Model.StoreAllData.Tables[0].Rows[i]["tdate"].ToString();
+            
+
+
+            <tr>
+                <td>
+                    @custID
+                </td>
+                <td>
+                    @acid
+                </td>
+                <td>
+                    @type
+                </td>
+                <td>
+                    @amount
+                </td>
+                
+                <td>
+                    @tdate
+                </td>
+               
+            </tr>
+
+
+
+        }
+
+    }
+</table>
+
+<div style="margin-top:25px">
+    @Html.ActionLink("Back", "cashier", "homepage")
+</div>

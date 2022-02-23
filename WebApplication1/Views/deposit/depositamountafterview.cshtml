@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewBag.Title = "depositamountafterview";
+}
+
+<h3 style="text-align:center">Account Details</h3>
+
+
+
+<table width="100%">
+    <tr>
+        <th>
+            CustomerID :
+        </th>
+        <td>@ViewBag.acid
+      </td>
+       </tr>
+    <tr>
+        <th>
+            Account ID :
+        </th>
+        <td>
+            @ViewBag.custid
+    </td>
+  
+      </tr>
+    <tr>
+        <th>
+            Account Type :
+        </th>
+        <td>
+            @ViewBag.type
+    </td>
+
+        </tr>
+    <tr>
+        <th>
+            Previous Balance :
+        </th>
+        <td>
+            @ViewBag.balance
+    </td>
+
+        </tr>
+    <tr>
+        <th>
+            New Balance :
+        </th>
+        <td>
+            @ViewBag.newbal
+    </td>
+
+    </tr>
+</table>
+
+<div>
+    @Html.ActionLink("Back", "cashier","homepage")
+</div>

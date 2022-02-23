@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "showaccountdetails";
+}
+
+<h3  style="text-align:center">Account Details</h3>
+
+<table>
+
+    <tr>
+        <th>
+            Account Id :
+
+        </th>
+        <td>
+
+            @ViewBag.aid
+
+        </td>
+    </tr>
+
+
+    <tr>
+        <th>
+            Customer Id :
+
+        </th>
+        <td>
+
+            @ViewBag.custid
+
+        </td>
+    </tr>
+
+
+    <tr>
+        <th>
+            Balance :
+
+        </th>
+        <td>
+
+            @ViewBag.bal
+
+        </td>
+    </tr>
+
+
+
+    <tr>
+        <th>
+            Last Transaction Date :
+
+        </th>
+        <td>
+
+            @ViewBag.ltd
+
+        </td>
+    </tr>
+
+
+</table>
+
+<div style="margin-top:30px">
+
+    @Html.ActionLink("Back", "executive", "homepage")
+
+
+</div>

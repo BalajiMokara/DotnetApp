@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Locate Branch";
+}
+
+<head>
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize&key=AIzaSyCHAGLNH3W2ZoMW0FNcuf86u3Tv2k-L2Rw">
+
+    </script>
+    <script>
+
+        var directionsDisplay;
+        var directionsService = new google.maps.DirectionsService();
+
+        function InitializeMap() {
+   //         alert("dk");
+            directionsDisplay = new google.maps.DirectionsRenderer();
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
+            var myOptions =
+            {
+                zoom: 8,
+                center: latlng,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            var map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById("directionpanel"));
+
+            var control = document.getElementById("control");
+            control.style.display = 'block';
+
+
+        }
+        function calcRoute() {
+ //           alert("cl royete");
+            var start = document.getElementById('startvalue').value;
+            var end = document.getElementById('endvalue').value;
+            var request = {
+                origin: start,
+                destination: end,
+                travelMode: google.maps.DirectionsTravelMode.DRIVING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                }
+            });
+
+        }
+
+        function Button1_onclick() {
+        //    alert("uigi")
+            calcRoute();
+        }
+
+        window.onload = InitializeMap;
+
+
+
+    </script>
+
+
+</head>
+<body>
+    <div>
+        <table style="margin-top:100px">
+            <tr>
+                <td>From</td>
+                <td><input type="text" id="startvalue" /></td>
+            </tr>
+            <tr>
+                <td>To</td>
+                <td><input type="text" id="endvalue" /></td>
+            </tr>
+            <tr><td> <input type="button" value="click" onclick="Button1_onclick()" /></td></tr>
+        </table>
+
+    </div>
+    <div id="directionpanel" style="position:absolute;width:500px;top:50%">
+    </div>
+
+
+    <div id="control">
+    </div>
+
+    <div id="map" style="position:absolute;width:40%;height:100%;left:55%;top:50%">
+    </div>
+
+
+    <div style="position:relative;">
+        @Html.ActionLink("Back", "executive", "homepage")
+    </div>
+
+
+
+
+</body>
+
+
+
+

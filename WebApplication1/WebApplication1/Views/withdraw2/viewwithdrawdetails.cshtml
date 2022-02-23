@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewBag.Title = "viewwithdrawdetails";
+}
+
+<h3 style="text-align:center">Withdraw Details</h3>
+
+<table>
+
+    <tr>
+        <th>AccountId:</th>
+        <td>@ViewBag.acid</td>
+
+    </tr>
+
+    <tr>
+        <th>Customer:</th>
+        <td>@ViewBag.cid</td>
+
+    </tr>
+
+
+    <tr>
+        <th>AccountType:</th>
+        <td>@ViewBag.atype</td>
+
+    </tr>
+
+    <tr>
+        <th>Previous Balance:</th>
+        <td>@ViewBag.pbal</td>
+
+    </tr>
+
+
+    <tr>
+        <th>Current Balance:</th>
+        <td>@ViewBag.nbal</td>
+
+    </tr>
+   
+
+</table>
+
+<div style="margin-top:25px">
+    @Html.ActionLink("Back", "cashier", "homepage")
+</div>

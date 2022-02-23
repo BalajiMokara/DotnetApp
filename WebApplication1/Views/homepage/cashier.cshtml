@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "cashier";
+}
+
+
+
+<h3>Welcome @Session["userid"]</h3>
+
+@*<table>
+
+        <tr>
+            <td>
+
+
+            </td>
+
+        </tr>
+
+    </table>*@
+
+
+<div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+        <li>@Html.ActionLink("Deposit Amount", "Index", "Predeposit")</li>
+        <li>@Html.ActionLink("Withdraw Amount", "Index", "withdraw")</li>
+        <li>@Html.ActionLink("Transfer Amount", "Index", "beforewithdraw")</li>
+        <li>@Html.ActionLink("Mini Statement", "getministatement1", "ministatement")</li>
+       
+
+    </ul>
+
+</div>
+
+
